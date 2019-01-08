@@ -1,5 +1,5 @@
 <template>
-  <div class="index container mt-3">
+  <main class="index container mt-3">
     <div class="row">
       <div class="col s12 m6 l4" v-for="smoothie in smoothies" v-bind:key="smoothie.id">
         <div class="card">
@@ -12,10 +12,19 @@
               </li>
             </ul>
           </div>
+          <span class="btn-floating btn-large halfway-fab pink">
+            <router-link
+              v-bind:to="{ name: 'EditSmoothie', params: {
+              smoothie_slug: smoothie.slug
+            }}"
+            >
+              <i class="material-icons edit">edit</i>
+            </router-link>
+          </span>
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
